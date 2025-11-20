@@ -1,7 +1,6 @@
 #include <stdio.h>
 
 int main(){
-	
 	int codigos[] = {101, 102, 103, 104, 105};
 	char nomes[][20] = {"Arroz", "Feijao", "Macarrao", "Farinha", "Acucar"};
 	float precos[] = {5.5, 7.2, 4.0, 3.8, 2.5};
@@ -9,7 +8,12 @@ int main(){
 	
 	int entrada;
 	int n_consulta;
-	int linha_carrinho;
+	int n_adiciona;
+	int linha_carrinho = 0;
+	int cod_produto;
+	int qtd_produto;
+	int i;
+	double subtotal;
 	
 	do {
 		
@@ -56,16 +60,147 @@ int main(){
 			}
 			
 		case 2: 
-		break;
 		
+			printf("Digite o codigo do produto para adicionar:\n");
+			scanf("%d", &n_adiciona);
+			switch(n_adiciona){
+				case 101:
+					printf("Digite o quantidade desejada:\n");
+					scanf("%d", &qtd_produto);
+					if (qtd_produto <= 0){
+					printf("Quantidade Insuficiente. \n");	
+					break;
+					}
+					
+					for(i = 0; i < 10; i++){
+						if(codigos[i] == n_adiciona){
+							int indice = i;
+						}
+					subtotal = 5.50 * (double)qtd_produto;
+					
+					
+					carrinho[linha_carrinho][0] = n_adiciona;        
+					carrinho[linha_carrinho][1] = qtd_produto;        
+					carrinho[linha_carrinho][2] = (int)subtotal;
+							
+					linha_carrinho++;
+					break;
+					}
+				break;
+				
+				case 102:
+					
+					printf("Digite o quantidade desejada:\n");
+					scanf("%d", &qtd_produto);
+					if (qtd_produto <= 0){
+					printf("Quantidade Insuficiente. \n");	
+					break;
+					}
+					
+					for(i = 0; i < 10; i++){
+						if(codigos[i] == n_adiciona){
+							int indice = i;
+						}
+					subtotal = 7.20 * (double)qtd_produto;
+					
+					
+					carrinho[linha_carrinho][0] = n_adiciona;        
+					carrinho[linha_carrinho][1] = qtd_produto;        
+					carrinho[linha_carrinho][2] = (int)subtotal;
+							
+					linha_carrinho++;
+					break;
+					}
+				break;
+				
+				case 103:
+					
+					printf("Digite o quantidade desejada:\n");
+					scanf("%d", &qtd_produto);
+					if (qtd_produto <= 0){
+					printf("Quantidade Insuficiente. \n");	
+					break;
+					}
+					
+					for(i = 0; i < 10; i++){
+						if(codigos[i] == n_adiciona){
+							int indice = i;
+						}
+					subtotal = 4.00 * (double)qtd_produto;
+					
+					
+					carrinho[linha_carrinho][0] = n_adiciona;        
+					carrinho[linha_carrinho][1] = qtd_produto;        
+					carrinho[linha_carrinho][2] = (int)subtotal;
+							
+					linha_carrinho++;
+					break;
+					}
+				break;
+				
+				case 104:
+					
+					printf("Digite o quantidade desejada:\n");
+					scanf("%d", &qtd_produto);
+					if (qtd_produto <= 0){
+					printf("Quantidade Insuficiente. \n");	
+					break;
+					}
+					
+					for(i = 0; i < 10; i++){
+						if(codigos[i] == n_adiciona){
+							int indice = i;
+						}
+					subtotal = 3.80 * (double)qtd_produto;
+					
+					
+					carrinho[linha_carrinho][0] = n_adiciona;        
+					carrinho[linha_carrinho][1] = qtd_produto;        
+					carrinho[linha_carrinho][2] = (int)subtotal;
+							
+					linha_carrinho++;
+					break;
+					}
+				break;
+				
+				case 105:
+				
+					printf("Digite o quantidade desejada:\n");
+					scanf("%d", &qtd_produto);
+					if (qtd_produto <= 0){
+					printf("Quantidade Insuficiente. \n");	
+					break;
+					}
+					
+					for(i = 0; i < 10; i++){
+						if(codigos[i] == n_adiciona){
+							int indice = i;
+						}
+					subtotal = 2.50 * (double)qtd_produto;
+					
+					
+					carrinho[linha_carrinho][0] = n_adiciona;        
+					carrinho[linha_carrinho][1] = qtd_produto;        
+					carrinho[linha_carrinho][2] = (int)subtotal;
+							
+					linha_carrinho++;
+					break;
+					}
+				break;
+				
+				default:
+					printf("Codigo nao Encontrado. \n");
+					break;
+			}
+			break;
 		case 3:
 			printf("Saindo do Sistema e Imprimindo a Nota Fiscal:\n");
 			break;
 		default:
 			printf("Opcao errada! \n");
 			break;
-		}
-	} while(entrada != 3);
-	
+		} 
+		
+	}while(entrada != 3);
 	
 }
