@@ -202,5 +202,27 @@ int main(){
 		} 
 		
 	}while(entrada != 3);
+
+		// elaborando a nota fiscal do sistema:
 	
+printf("\n|========= NOTA FISCAL ========|\n");  
+double total_geral = 0;
+int j, codigo, quantidade;
+for (i = 0; i < linha_carrinho; i++) {
+    codigo = (int)carrinho[i][0];
+    quantidade = (int)carrinho[i][1];
+    subtotal = carrinho[i][2];
+    for (j = 0; j < 5; j++) {
+        if (codigos[j] == codigo) {
+            printf("%s - %d un x R$ %.2f = R$ %.2f\n",
+                   nomes[j], quantidade, precos[j], subtotal);
+            total_geral += subtotal;
+            break;
+        }
+    }
 }
+printf("\nTOTAL A PAGAR: R$ %.2f\n", total_geral);
+
+}
+	
+}}
