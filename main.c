@@ -4,7 +4,7 @@ int main(){
 	int codigos[] = {101, 102, 103, 104, 105};
 	char nomes[][20] = {"Arroz", "Feijao", "Macarrao", "Farinha", "Acucar"};
 	float precos[] = {5.5, 7.2, 4.0, 3.8, 2.5};
-	int carrinho[10][3];
+	double carrinho[10][3];
 	
 	int entrada;
 	int n_consulta;
@@ -81,7 +81,7 @@ int main(){
 					
 					carrinho[linha_carrinho][0] = n_adiciona;        
 					carrinho[linha_carrinho][1] = qtd_produto;        
-					carrinho[linha_carrinho][2] = (int)subtotal;
+					carrinho[linha_carrinho][2] = subtotal;
 							
 					linha_carrinho++;
 					break;
@@ -106,7 +106,7 @@ int main(){
 					
 					carrinho[linha_carrinho][0] = n_adiciona;        
 					carrinho[linha_carrinho][1] = qtd_produto;        
-					carrinho[linha_carrinho][2] = (int)subtotal;
+					carrinho[linha_carrinho][2] = subtotal;
 							
 					linha_carrinho++;
 					break;
@@ -131,7 +131,7 @@ int main(){
 					
 					carrinho[linha_carrinho][0] = n_adiciona;        
 					carrinho[linha_carrinho][1] = qtd_produto;        
-					carrinho[linha_carrinho][2] = (int)subtotal;
+					carrinho[linha_carrinho][2] = subtotal;
 							
 					linha_carrinho++;
 					break;
@@ -156,7 +156,7 @@ int main(){
 					
 					carrinho[linha_carrinho][0] = n_adiciona;        
 					carrinho[linha_carrinho][1] = qtd_produto;        
-					carrinho[linha_carrinho][2] = (int)subtotal;
+					carrinho[linha_carrinho][2] = subtotal;
 							
 					linha_carrinho++;
 					break;
@@ -181,7 +181,7 @@ int main(){
 					
 					carrinho[linha_carrinho][0] = n_adiciona;        
 					carrinho[linha_carrinho][1] = qtd_produto;        
-					carrinho[linha_carrinho][2] = (int)subtotal;
+					carrinho[linha_carrinho][2] = subtotal;
 							
 					linha_carrinho++;
 					break;
@@ -204,25 +204,22 @@ int main(){
 	}while(entrada != 3);
 
 		// elaborando a nota fiscal do sistema:
-	
-printf("\n|========= NOTA FISCAL ========|\n");  
-double total_geral = 0;
-int j, codigo, quantidade;
-for (i = 0; i < linha_carrinho; i++) {
-    codigo = (int)carrinho[i][0];
-    quantidade = (int)carrinho[i][1];
-    subtotal = carrinho[i][2];
-    for (j = 0; j < 5; j++) {
-        if (codigos[j] == codigo) {
-            printf("%s - %d un x R$ %.2f = R$ %.2f\n",
-                   nomes[j], quantidade, precos[j], subtotal);
-            total_geral += subtotal;
-            break;
-        }
-    }
-}
-printf("\nTOTAL A PAGAR: R$ %.2f\n", total_geral);
+	printf("\n|========= NOTA FISCAL ========|\n");  
+	double total_geral = 0;
+	int j, codigo, quantidade;
+	for (i = 0; i < linha_carrinho; i++) {
+	    codigo = (int)carrinho[i][0];
+	    quantidade = (int)carrinho[i][1];
+	    subtotal = carrinho[i][2];
+	    for (j = 0; j < 5; j++) {
+	        if (codigos[j] == codigo) {
+	            printf("%s - %d un x R$ %.2f = R$ %.2f\n",
+	                   nomes[j], quantidade, precos[j], subtotal);
+	            total_geral += subtotal;
+	            break;
+	        }
+	    }
+	}
+	printf("\nTOTAL A PAGAR: R$ %.2f\n", total_geral);
 
 }
-	
-}}
