@@ -58,6 +58,7 @@ int main(){
 					printf("Codigo errado. \n");
 					break;
 			}
+			break;
 			
 		case 2: 
 		
