@@ -13,7 +13,7 @@ int main(){
 	int qtd_produto;
 	int i;
 	double subtotal;
-	double total_geral = 0.0;
+	double total_geral;
 	
 	do {
 		
@@ -38,10 +38,7 @@ int main(){
 		switch(entrada){
 		
 		case 1: 
-			if(linha_carrinho>=10){
-			printf("O carrinho esta cheio! Maximo de 10 itens atingido.\n");	
-			break;
-			}
+			
 			
 			printf("Digite o codigo do produto para adicionar:\n");
 			leitura_entrada = scanf("%d", &n_adiciona);
@@ -203,8 +200,11 @@ int main(){
 					printf("Codigo nao Encontrado. \n");
 					break;
 					}
-			break;
-				
+		if(linha_carrinho>=10){
+		printf("O carrinho esta cheio! Maximo de 10 itens atingido.\n");	
+		entrada = 2;
+		}   
+		break;	
 		case 2:
 			printf("Saindo do Sistema e Imprimindo a Nota Fiscal:\n");
 			break;
@@ -212,16 +212,35 @@ int main(){
 			printf("Opcao errada! \n");
 			break;
 		} 
-
-	total_geral += subtotal;
 		
 	}while(entrada != 2);
 	
-	if (entrada == 2 || linha_carrinho ==10) {
-		printf("\n|=============== NOTA FISCAL =========================|\n"); 
-	for (i = 0;i<linha_carrinho; i++){
-		printf("| %s | Cod.: %d | %d UNID| R$ %.2lf -->Subtotal: R$ %.2lf |\n",  nomes[i], (int)carrinho[i][0], (int)carrinho[i][1], carrinho[i][2]/carrinho[i][1], carrinho[i][2]);
-		}	
+	total_geral = 0.0;
+	if (entrada == 2 || linha_carrinho >= 10) {
+		printf("\n|=============== NOTA FISCAL ============================|\n");
+	} else {
+		printf("Carrinho vazio.\n");
+	}
+	
+	for (i = 0; i < linha_carrinho; i++){
+		int cod_carrinho = (int)carrinho[i][0];
+		int indice_nome = -1;
+		int j;
+		
+		for(j = 0; j < 5; j++){
+			if(codigos[j] == cod_carrinho){
+				indice_nome = j;
+				break;
+			}
+		}
+		
+		if (indice_nome != -1) {
+			printf("| %s | Cod.: %d | %d UNID| R$ %.2lf -->Subtotal: R$ %.2lf |\n", nomes[indice_nome], cod_carrinho, (int)carrinho[i][1], carrinho[i][2]/carrinho[i][1], carrinho[i][2]);
+			total_geral += carrinho[i][2];
+		}
+	}
+	
+	if (linha_carrinho > 0) {
 		printf("\nTOTAL A PAGAR: R$ %.2lf\n", total_geral);
 	}
 	
